@@ -19,3 +19,7 @@ truffle migrate
 truffle migrate --reset
 truffle console (masuk ke syntax truffle)
     -: tether= await Tether.deployed() --untuk melihat hasil smart contract
+
+truffle(development)> acc = await web3.eth.getAccounts()
+undefined
+truffle(development)> acc[0]
