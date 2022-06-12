@@ -1,6 +1,8 @@
 # staking
 blockchain
 
+install Depedency NPM i
+
 echo "# staking" >> README.md
 git init
 git add README.md
