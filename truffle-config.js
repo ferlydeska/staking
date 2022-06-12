@@ -23,6 +23,9 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+require('babel-register');
+require('babel-polyfill');
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -33,7 +36,8 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-
+  contracts_directory: "./src/contracts",
+  contracts_build_directory: "./src/truffle_abis",
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
@@ -41,11 +45,11 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+    },
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -87,10 +91,10 @@ module.exports = {
       version: "0.8.14",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
+      optimizer: {
+        enabled: true,
+        runs: 200
+      },
       //  evmVersion: "byzantium"
       // }
     }

@@ -11,3 +11,11 @@ git branch -M main
 git remote add origin https://github.com/ferlydeska/staking.git
 git push -u origin main
 
+
+truffle init
+truffle compile
+truffle compile --all
+truffle migrate
+truffle migrate --reset
+truffle console (masuk ke syntax truffle)
+    -: tether= await Tether.deployed() --untuk melihat hasil smart contract
