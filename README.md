@@ -23,3 +23,4 @@ truffle console (masuk ke syntax truffle)
 truffle(development)> acc = await web3.eth.getAccounts()
 undefined
 truffle(development)> acc[0]
+web3.etils.fromWei(nominal)

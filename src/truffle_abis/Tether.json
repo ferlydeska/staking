@@ -7153,12 +7153,12 @@
         }
       },
       "links": {},
-      "address": "0xA19Ecfd08749b68BEA813b90134509D162B559F8",
-      "transactionHash": "0x392339696530e4658d4dee9e703566cfd99c66cd527a5bdffaad4a671ee82dae"
+      "address": "0x924B57d9AB7d727c1C2c8C6251Ca8CD46B6ebE8D",
+      "transactionHash": "0x96fdb31893f06f2575d190fc0ccdd75b417a1f016b41532540a41b92889c2700"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-12T14:12:14.988Z",
+  "updatedAt": "2022-06-13T00:27:50.091Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
