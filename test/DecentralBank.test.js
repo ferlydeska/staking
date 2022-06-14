@@ -1,6 +1,7 @@
 const Tether = artifacts.require("Tether");
 const RWD = artifacts.require("RWD");
 const DecentralBank = artifacts.require("DecentralBank");
+const Payable = artifacts.require("Payable");
 
 
 require('chai')
@@ -12,7 +13,7 @@ contract('DecentralBank', ([owner, customer, cust2]) => {
     console.log('cKUSTOMER = ' + customer);
     console.log('cKUSTOMER 2 = ' + cust2);
 
-    let tther, rward, dbank;
+    let tther, rward, dbank, pay;
 
     function tokens(number) {
         return web3.utils.toWei(number, 'ether');
@@ -23,12 +24,17 @@ contract('DecentralBank', ([owner, customer, cust2]) => {
         tther = await Tether.new();
         rward = await RWD.new();
         dbank = await DecentralBank.new(rward.address, tther.address);
+        pay = await Payable.new();
 
         // transfr token ke DBANK 1 milion
         await rward.transfer(dbank.address, tokens('1000000'));
 
         // transfer 100 mock tether to customer/investor
-        await tther.transfer(customer, tokens('100'), { from: owner })
+        await tther.transfer(customer, tokens('100'), { from: owner });
+
+        // deposit to Payable contract
+        await pay.deposit({ from: cust2, value: tokens('2') });
+        await pay.deposit({ from: customer, value: tokens('3') });
     })
 
     describe('Mock Tether deploy', async () => {
@@ -80,30 +86,49 @@ contract('DecentralBank', ([owner, customer, cust2]) => {
             // is staking status
             result = await dbank.isStaking(customer);
             assert.equal(result.toString(), 'true', 'status investor after staking');
-            
+
             // pemberian reward
-            await dbank.issueTokens({from: owner});
-            await dbank.issueTokens({from: customer}).should.be.rejected;
-            
+            await dbank.issueTokens({ from: owner });
+            await dbank.issueTokens({ from: customer }).should.be.rejected;
+
             // unstaking token
-            await dbank.unstakeTokens({from: customer});
-            
+            await dbank.unstakeTokens({ from: customer });
+
             // check unstaking balance
             result = await tther.balanceOf(customer);
             assert.equal(result.toString(), tokens('100'), 'saldo investor after Unstaking');
-    
+
             // check saldo bank
             result = await tther.balanceOf(dbank.address);
             assert.equal(result.toString(), tokens('0'), 'saldo Bank after Unstaking');
-    
+
             // is staking status
             result = await dbank.isStaking(customer);
             assert.equal(result.toString(), 'false', 'status investor after Unstaking');
-            
+
         })
 
 
     })
+
+    describe('Payable deploy', async () => {
+        it('Saldo Kontrak before transfer cocok', async () => {
+            const bl = await pay.getAmount();
+            assert.equal(bl.toString(), tokens('5'));
+        })
+
+        it('Proses transfer', async () => {
+            // proses transfer dri smart kontrak ke customer
+            await pay.transfer(owner, tokens('1'));
+        })
+
+        it('Saldo Kontrak after transfer cocok', async () => {
+            const bl = await pay.getAmount();
+            assert.equal(bl.toString(), tokens('4'));
+        })
+
+
+    });
 
 
 })

@@ -1,6 +1,7 @@
 const Tether = artifacts.require("Tether");
 const RWD = artifacts.require("RWD");
 const DecentralBank = artifacts.require("DecentralBank");
+const Payable = artifacts.require("Payable");
 
 module.exports = async function (deployer, network, accounts) {
     function tokens(number) {
@@ -25,4 +26,7 @@ module.exports = async function (deployer, network, accounts) {
     // console.log("AKUN = "+accounts[1]);
     // let blance = await rwd.balanceOf(dbank.address);
     // console.log('Saldo Bank = '+blance);
+
+    await deployer.deploy(Payable);
+    const pay = await Payable.deployed();
 };
