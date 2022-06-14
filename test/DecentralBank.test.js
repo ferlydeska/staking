@@ -27,7 +27,7 @@ contract('DecentralBank', ([owner, customer, cust2]) => {
         pay = await Payable.new();
 
         // transfr token ke DBANK 1 milion
-        await rward.transfer(dbank.address, tokens('1000000'));
+        await rward.transfer(dbank.address, tokens('1000000'), { from: owner });
 
         // transfer 100 mock tether to customer/investor
         await tther.transfer(customer, tokens('100'), { from: owner });
