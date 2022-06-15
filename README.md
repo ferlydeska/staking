@@ -27,3 +27,9 @@ web3.etils.fromWei(nominal)
 
 truffle test
 truffle exec scripts/issue-tokens.js
+
+for 'error:03000086:digital envelope routines::initialization error'
+just run “npm install” then run “npm audit fix -–force”
+
+to start React server
+npm run start
