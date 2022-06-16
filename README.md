@@ -33,3 +33,6 @@ just run “npm install” then run “npm audit fix -–force”
 
 to start React server
 npm run start
+
+to install package lock only
+npm i --package-lock-only
