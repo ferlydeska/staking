@@ -1,9 +1,9 @@
-import React, { Comp } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import Web3 from 'web3';
 
-class App extends Comp {
+class App extends Component {
     async UNSAFE_componentWillMount() {
         await this.loadWeb3();
     }
@@ -30,7 +30,7 @@ class App extends Comp {
         return (
             <diV>
                 <Navbar account={this.state.account} />
-                <div className='text-center' style={{ color: 'yellow', fontSize: '30px' }}>
+                <div className='text-center' style={{ color: 'green', fontSize: '30px' }}>
                     <h4>Helllo Worddddd</h4>
                 </div>
             </diV>

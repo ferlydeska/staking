@@ -1,10 +1,10 @@
-import React, { Comp } from 'react';
+import React, { Component } from 'react';
 
-class Navbar extends Comp {
+class Navbar extends Component {
     render() {
         return (
             <nav className='navbar'>
-                <a>Testing Staking</a>
+                <a  href='?n=1'>Testing Staking</a>
                 <ul>
                     <li>
                         <small>Acc Number :
