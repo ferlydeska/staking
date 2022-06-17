@@ -4,12 +4,12 @@ class Navbar extends Component {
     render() {
         return (
             <nav className='navbar'>
-                <a  href='?n=1'>Testing Staking</a>
+                <a href='?n=1'>Testing Staking</a>
                 <ul>
                     <li>
                         <small>Acc Number :
                             <br />
-                            <h1>{this.props.account}</h1>
+                            <b><label>{this.props.akun}</label></b>
                         </small>
                     </li>
                 </ul>

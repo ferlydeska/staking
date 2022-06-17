@@ -4,8 +4,7 @@
     {
       "inputs": [],
       "stateMutability": "payable",
-      "type": "constructor",
-      "payable": true
+      "type": "constructor"
     },
     {
       "inputs": [],
@@ -18,16 +17,14 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
       "name": "deposit",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -40,8 +37,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -3433,13 +3429,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xE0521660b7c99728A2a82f31B44aF93Cc767b516",
-      "transactionHash": "0xe1d982276ad673f941314f31a5c422bdd236dd320890592a777fc21da58d1c77"
+      "address": "0x977aE18E98c88C90279a0666bB545f3ED4D0b245",
+      "transactionHash": "0x9edb54737f1ccb1a421323113d1bcbb4694db6f000abd2aa880d9ae1a0fa68c3"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-16T23:43:05.898Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-06-17T09:45:26.742Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

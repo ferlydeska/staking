@@ -1,3 +1,4 @@
+// tidak dipake jika menggunakan react-script v 5 kebawah
 const webpack = require("webpack");
 
 module.exports = function override(config) {
