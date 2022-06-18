@@ -22,7 +22,7 @@ class Main extends Component {
                 <div className='card mb-2'>
                     <form onSubmit={(event) => {
                         event.preventDefault();
-                        let amount = this.elmToken.value.toString();
+                        let amount = this.valToken.value.toString();
                         this.props.stakeTokens(amount);
                     }}
                         className='mb-3'>
@@ -33,7 +33,7 @@ class Main extends Component {
                             </span>
                             <div className='input-group mb-4'>
                                 <input
-                                    ref={(inp) => { this.elmToken = inp }}
+                                    ref={(inp) => { this.valToken = inp }}
                                     type='text'
                                     placeholder='0' required />
                                 <div className='input-group-open'>
@@ -62,6 +62,8 @@ class Main extends Component {
     stakeReward(evt) {
         evt.preventDefault();
         let saldo = this.props.stakingBalance;
+        let amount = this.valToken;
+        console.log(amount);
         this.props.rewardTokens()
     }
 }
